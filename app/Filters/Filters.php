@@ -55,7 +55,6 @@ abstract class Filters
 
         foreach ($this->getFilters() as $filter => $value) {
             if (method_exists($this, $filter)) {
-                logger("Export call function $filter");
                 $this->$filter($value);
             }
         }
