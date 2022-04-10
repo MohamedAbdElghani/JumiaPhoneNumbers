@@ -6,7 +6,7 @@
                 <div class="col-sm-7">
                     <select class="form-control" name="country">
                         <option value="">Select...</option>
-                        @foreach($countries as $country)
+                        @foreach($data['countries'] as $country)
                             <option value="{{($country)}}">{{$country}}</option>
                         @endforeach
                     </select>

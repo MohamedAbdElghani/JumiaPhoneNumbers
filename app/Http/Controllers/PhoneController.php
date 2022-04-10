@@ -9,10 +9,11 @@ use App\Http\Resources\CustomerResource;
 class PhoneController extends Controller
 {
     public function getPhones(PhonesFilter $filter){
-        $customers=Customer::filter($filter)->paginate(5);
-        return view('countryPhones.phones',[
-            'customers'=>CustomerResource::collection($customers),
+        $customers=Customer::filter($filter)->paginate(10);
+        $data=[
+            'customers'=> CustomerResource::collection($customers),
             'countries' => array_keys(config('countryCode'))
-        ]);
+        ];
+        return view('countryPhones.phones')->with('data',$data);
     }
 }

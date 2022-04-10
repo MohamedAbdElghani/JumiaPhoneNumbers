@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/phones', 'PhoneController@getPhones')->name('phones');
+Route::get('/', 'PhoneController@getPhones')->name('phones');

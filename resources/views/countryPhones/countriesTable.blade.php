@@ -8,12 +8,12 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($customers as $customer)
+    @foreach($data['customers']->resolve() as $customer)
     <tr>
-        <td>{{$customer->country}}</td>
-        <td>{{$customer->state == True ? 'OK' : 'NOK'}}</td>
-        <td>{{$customer->countryCode}}</td>
-        <td>{{$customer->phone}}</td>
+        <td>{{$customer['country']}}</td>
+        <td>{{$customer['state'] == True ? 'OK' : 'NOK'}}</td>
+        <td>{{$customer['countryCode']}}</td>
+        <td>{{$customer['phoneNo']}}</td>
     </tr>
     @endforeach
     </tbody>

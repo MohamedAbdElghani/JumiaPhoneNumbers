@@ -8,6 +8,7 @@ use Illuminate\Support\Arr;
 class Customer extends Model
 {
     protected $table='customer';
+    public $timestamps = false;
 
     public function scopeFilter($query, $filters)
     {
@@ -26,5 +27,10 @@ class Customer extends Model
 
     public function getCountryCodeAttribute(){
         return config('countryCode.'.$this->country.'.countryCode');
+    }
+
+    public function getPhoneWithoutCodeAttribute(){
+        $phoneSlices=explode(' ', $this->phone)[1];
+        return $phoneSlices;
     }
 }

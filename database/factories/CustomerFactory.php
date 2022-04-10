@@ -18,11 +18,18 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(Customer::class, function (Faker $faker) {
-    $codeNumbers=['(237)','(251)','(212)','(258)','(256)'];
-    $state=[array_rand([2368,range(1, 59),''])];
-//    $numberComplement=[array_rand(range())];
+    $arrphones=[
+            0 => ['code'=>'(237) ','state'=>array_rand([2368,'']),'phone'=>random_int(1000000, 99999999)],
+            1 => ['code'=>'(251) ','state'=>array_rand([range(1, 59),'']),'phone'=>random_int(10000000, 99999999)],
+            2 => ['code'=>'(212) ','state'=>array_rand([range(5, 9),'']),'phone'=>random_int(10000000, 99999999)],
+            3 => ['code'=>'(258) ','state'=>array_rand([28,'']),'phone'=>random_int(1000000, 99999999)],
+            4 => ['code'=>'(256) ','state'=>'','phone'=>random_int(100000000, 999999999)],
+        ];
+
+    $arrKey=array_rand($arrphones);
+    $phone = implode("",$arrphones[$arrKey]);
     return [
         'name' => $faker->name,
-        'phone' =>''
+        'phone' =>$phone
     ];
 });

@@ -10,7 +10,7 @@
 
         </div>
         <div class="row" style="justify-content: center">
-             {!! $customers->appends(\Illuminate\Support\Facades\Request::except('page'))->render()  !!}
+             {!! $data['customers']->appends(\Illuminate\Support\Facades\Request::except('page'))->render()  !!}
 
         </div>
 

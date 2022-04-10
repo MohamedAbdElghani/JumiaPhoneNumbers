@@ -15,8 +15,8 @@ class CustomerResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'countryCode' => $this->countryCode,
-            'phone' => $this->phone,
+            'countryCode' => '+'.$this->countryCode,
+            'phoneNo' => $this->phoneWithoutCode,
             'country' => $this->country,
             'state' => $this->state,
         ];
